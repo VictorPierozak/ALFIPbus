@@ -69,6 +69,7 @@ void init(std::string filename = "", bool verbose = false)
 
   auto consoleLog = bl::add_console_log(std::cout);
   consoleLog->set_formatter(&coloring_formatter);
+  consoleLog->locked_backend()->auto_flush(true);
 
   if (filename != "") {
     auto fileLog = bl::add_file_log(bl::keywords::file_name = filename, bl::keywords::auto_flush = true, bl::keywords::open_mode = std::ios_base::app);

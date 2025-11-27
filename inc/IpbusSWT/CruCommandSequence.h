@@ -18,7 +18,7 @@ class CruCommandSequnce
         static constexpr size_t ReadStrLen = std::char_traits<char>::length(ReadStr);
         static constexpr const char* WriteStr = "write";
         static constexpr size_t WriteStrLen = std::char_traits<char>::length(WriteStr);
-        static constexpr const char* ReadCntStr = "read_cnt";
+        static constexpr const char* ReadCntStr = "read_multiple";
         static constexpr size_t ReadCntStrLen = std::char_traits<char>::length(ReadCntStr);
         static constexpr const char* WaitStr = "wait";
         static constexpr size_t WaitStrLen = std::char_traits<char>::length(WaitStr);

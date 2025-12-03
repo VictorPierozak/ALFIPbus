@@ -33,6 +33,13 @@ CruCommandSequnce::Command::Command(const char* beg, size_t command, size_t len)
 {
     switch (len - command)
     {
+    case ScResetStrLen:
+        if (strncmp(beg + command, ScResetStr, ScResetStrLen) == 0) {
+            type = Type::ScReset;
+        } else {
+            type = Type::Invalid;
+        }
+        break;
     case ReadStrLen: // same len for WaitStr
         if (strncmp(beg + command, ReadStr, ReadStrLen) == 0) {
             type = Type::Read;
@@ -49,11 +56,9 @@ CruCommandSequnce::Command::Command(const char* beg, size_t command, size_t len)
             type = Type::Invalid;
         }
         break;
-    case ReadCntStrLen: // same len for ScResetStr
+    case ReadCntStrLen:
         if(strncmp(beg + command, ReadCntStr, ReadCntStrLen) == 0) {
             type = Type::ReadCnt;
-        } else if (strncmp(beg + command, ScResetStr, ScResetStrLen) == 0) {
-            type = Type::ScReset;
         } else {
             type = Type::Invalid;
         }

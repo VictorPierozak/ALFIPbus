@@ -22,7 +22,7 @@ void AlfIPbus::initLinks()
     std::string serviceName = m_cfg.name + "/SERIAL_0/ENDPOINT_0/LINK_" + std::to_string(i) + "/SWT_SEQUENCE";
     BOOST_LOG_TRIVIAL(debug) << "Creating service " + serviceName;
     m_swtLinks.emplace_back(serviceName, m_ioContext, m_cfg.links[i].address, m_cfg.links[i].rport, 0);
-    m_swtLinks.back().setTimeout(boost::posix_time::milliseconds(m_cfg.timeout));
+    m_swtLinks.back().setTimeout(std::chrono::milliseconds(m_cfg.timeout));
     BOOST_LOG_TRIVIAL(info) << "Created service " + serviceName;
   }
 }

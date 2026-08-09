@@ -12,13 +12,13 @@ set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 set(cma ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
-find_package(Boost REQUIRED COMPONENTS system log log_setup program_options)
+find_package(Boost REQUIRED COMPONENTS log log_setup program_options)
 
 file(GLOB_RECURSE SOURCES "src/*.cxx")
 add_executable(AlfIPbus src/AlfIPbus.cxx src/main.cxx src/AlfConfig.cxx ${SOURCES})
 
 target_include_directories(AlfIPbus PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
-target_link_libraries(AlfIPbus DimRpcParallel dim pthread Boost::system Boost::log_setup Boost::log Boost::program_options)
+target_link_libraries(AlfIPbus DimRpcParallel dim pthread Boost::log_setup Boost::log Boost::program_options)
 target_include_directories(AlfIPbus PUBLIC ${CMAKE_SOURCE_DIR}/DimRpcParallel/include/DimRpcParallel)
 
 if(NOT CMAKE_BUILD_TYPE)
